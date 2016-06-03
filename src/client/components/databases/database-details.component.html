@@ -1,0 +1,18 @@
+
+<div class="container">
+
+  <div *ngIf="!(loading$ | async) && (database$ | async)">
+    <div>Id: {{(database$ | async).id}}</div>
+    <div>Name: {{(database$ | async).name}}</div>
+    <div>Size: {{(database$ | async).size | bytes:'kb'}}</div>
+    <div>Owner: {{(database$ | async).owner}} </div>
+    <div>Created: {{(database$ | async).created}}</div>
+  </div>
+
+  <div *ngIf="(loading$ | async)" class="loading">Loading...</div>
+  <br>
+  <br>
+  <button *ngIf="!(loading$ | async)" (click)="clearDatabase()">Clear selected database</button>
+
+</div>
+

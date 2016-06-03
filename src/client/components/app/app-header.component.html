@@ -1,0 +1,9 @@
+<h1><span>Angular 2 Demo App - V 1.0</span><span *ngIf="database$ | async"> ({{(database$ | async).name}})</span></h1>
+
+<nav>
+  <a [routerLink]="['/']">HOME</a>
+
+  <a [routerLink]="['/about']">ABOUT</a>
+
+  <a [routerLink]="['/databases-list']">DATABASES</a>
+</nav>

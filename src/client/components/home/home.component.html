@@ -1,0 +1,13 @@
+<p>
+
+</p>
+
+<form (submit)="addName()">
+  <input [(ngModel)]="newName" placeholder="Awesome Computer Scientist">
+  <button type="submit">Add</button>
+</form>
+
+
+<ul>
+  <li *ngFor="let name of nameListService.get()">{{name}}</li>
+</ul>

@@ -1,0 +1,26 @@
+
+<div  class="db-list-container">
+  <button (click)="toggleDisplayed()">Toggle display</button>
+  <br>
+  <ul [class.hide]="!displayed" [attr.aria-visible]="!displayed">
+    <li *ngFor="let db of (dbList$ | async)">
+      <a href="#" (click)="selectDatabase(db)" >{{db.name}}</a><span *ngIf="db.owner"> ({{db.owner}})</span>
+    </li>
+  </ul>
+
+  <div *ngIf="(loading$ | async)" class="loading">Loading...</div>
+
+  <div *ngIf="(errorMessage$ | async) && !(loading$ | async)" class="error-message">
+    ERROR: {{errorMessage$ | async}}
+
+    <br>
+    <br>
+    <button (click)="refresh()">Retry</button>
+  </div>
+
+  <div class="edit-container">
+    <database-details></database-details>
+  </div>
+
+</div>
+
